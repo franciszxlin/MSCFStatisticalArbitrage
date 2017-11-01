@@ -1,0 +1,26 @@
+hw1dt<-read.csv(file='C:\\Users\\zil20\\Desktop\\Statistical Arbitrage\\wk1\\hw1.csv', header=TRUE, sep=',')
+# (a)
+nrow(hw1dt)
+ncol(hw1dt)
+colnames(hw1dt)
+# (b)
+summary(hw1dt$TICKER)
+summary(hw1dt$CUSIP)
+# (c)
+summary(hw1dt$COMNAM)
+# (d)
+unique(hw1dt$CFACPR)
+sum(is.na(hw1dt$PRC))
+sum(is.na(hw1dt$CFACPR))
+hw1dt$PRCadj<-hw1dt$PRC/hw1dt$CFACPR
+hw1dt[1,]
+# (e)
+sum(is.na(hw1dt$PRCadj))
+# (f)
+length(unique(hw1dt$date))
+# (g)
+sel_bool<-hw1dt$date>=20140101 & hw1dt$date<=20141231 & hw1dt$PRC<0
+hw1dt[sel_bool,]
+hw1dt$PRC<-abs(hw1dt$PRC)
+hw1dt$PRCadj<-abs(hw1dt$PRCadj)
+# (h) 
